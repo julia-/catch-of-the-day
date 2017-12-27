@@ -5,11 +5,11 @@ import base from '../base'
 class Inventory extends React.Component {
   constructor() {
     super()
+    this.renderInventory = this.renderInventory.bind(this)
+    this.renderLogin = this.renderLogin.bind(this)
     this.authenticate = this.authenticate.bind(this)
     this.logout = this.logout.bind(this)
     this.authHandler = this.authHandler.bind(this)
-    this.renderLogin = this.renderLogin.bind(this)
-    this.renderInventory = this.renderInventory.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.state = {
       uid: null,
@@ -36,7 +36,7 @@ class Inventory extends React.Component {
   }
 
   authenticate(provider) {
-    base.AuthWithOAuthPopup(provider, this.authHandler)
+    base.authWithOAuthPopup(provider, this.authHandler)
   }
 
   logout() {
@@ -74,12 +74,6 @@ class Inventory extends React.Component {
         <p>Sign in to manage your inventory</p>
         <button className="github" onClick={() => this.authenticate('github')}>
           Login with GitHub
-        </button>
-        <button
-          className="facebook"
-          onClick={() => this.authenticate('facebook')}
-        >
-          Login with Facebook
         </button>
         <button
           className="twitter"
