@@ -40,7 +40,7 @@ class Inventory extends React.Component {
   }
 
   logout() {
-    base.unath()
+    base.unauth()
     this.setState({ uid: null })
   }
 
