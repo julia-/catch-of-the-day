@@ -76,6 +76,12 @@ class Inventory extends React.Component {
           Login with GitHub
         </button>
         <button
+          className="facebook"
+          onClick={() => this.authenticate('facebook')}
+        >
+          Login with Facebook
+        </button>
+        <button
           className="twitter"
           onClick={() => this.authenticate('twitter')}
         >
@@ -134,7 +140,7 @@ class Inventory extends React.Component {
     const logout = <button onClick={this.logout}>Log out</button>
 
     if (!this.state.uid) {
-      return <div>{this.renderLogin}</div>
+      return <div>{this.renderLogin()}</div>
     }
 
     if (this.state.uid !== this.state.owner) {
